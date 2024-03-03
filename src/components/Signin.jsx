@@ -1,34 +1,34 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-const Signin = ({ onSignIn }) => {
-  const navigateTo = useNavigate();
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+const Signin = () => {
+  const [loginData, setLoginData] = useState({
+    email: '',
+    password: '',
   });
+
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
+    setLoginData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSignIn(formData);
-    if (e.target.email.value && e.target.password.value) {
-      if (!localStorage.getItem("user")) {
-        localStorage.setItem(
-          "user",
-          JSON.stringify([
-            { email: e.target.email.value, passeord: e.target.password.value },
-          ])
-        );
-      }
+    // You can add code to check authentication with a backend or stored data
+    // For simplicity, let's assume we retrieve user data from localStorage
+    const savedData = JSON.parse(localStorage.getItem('userData'));
+    if (savedData && savedData.email === loginData.email && savedData.password === loginData.password) {
+      navigate('/dashboard');
+    } else {
+      alert('Invalid email or password');
     }
-    navigateTo("/dashboard");
   };
+
   return (
     <div className="signup-container">
       <div className="login-Container">
@@ -40,7 +40,7 @@ const Signin = ({ onSignIn }) => {
           type="email"
           name="email"
           placeholder="Email"
-          value={formData.email}
+          value={loginData.email}
           onChange={handleChange}
           required
         />
@@ -48,7 +48,7 @@ const Signin = ({ onSignIn }) => {
           type="password"
           name="password"
           placeholder="Password"
-          value={formData.password}
+          value={loginData.password}
           onChange={handleChange}
           required
         />
@@ -56,7 +56,7 @@ const Signin = ({ onSignIn }) => {
         <button type="submit" className="signup-btn">Sign In</button>
       </form>
       <div className="signup-text">
-        <span>Don't you have an account?</span>
+        <span>Do not you have an account?</span>
         <Link to="/signup">
           <button className="btn">SignUp</button>
         </Link>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-const Signup = ({ onSignUp }) => {
+const Signup = () => {
   const navigateTo = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
@@ -9,7 +9,7 @@ const Signup = ({ onSignUp }) => {
     referral: "",
     email: "",
     password: "",
-    country:"India"
+    country:""
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,14 +21,10 @@ const Signup = ({ onSignUp }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSignUp(formData);
-    if(e.target.email.value && e.target.password.value){
-      if(!localStorage.getItem('user')){
-          localStorage.setItem('user',JSON.stringify([{email:e.target.email.value,passeord:e.target.password.value, userName:e.target.userName.value}]))
-    
-      }
-    }
-    navigateTo("/");
+    // You can add code to save the form data to a database or state
+    // For simplicity, let's assume we save it in localStorage
+    localStorage.setItem('userData', JSON.stringify(formData));
+    navigateTo('/');
   };
   return (
     <div className="signup-container">

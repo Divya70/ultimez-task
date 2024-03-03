@@ -1,5 +1,6 @@
 
-const Dashboard = ({ userData }) => {
+const Dashboard = () => {
+  const userData = JSON.parse(localStorage.getItem('userData'));
     return (
       <div className="dashboard-container">
       <h2>Dashboard</h2>
