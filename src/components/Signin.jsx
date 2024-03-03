@@ -51,7 +51,7 @@ const Signin = ({ onSignIn }) => {
      
       </form>
       <div style={{ display: "flex" }}>
-        <p>Do you not have account</p>
+        <p>Don't you have an account?</p>
         <Link to="/signup">
           <button>SignUp</button>
         </Link>
