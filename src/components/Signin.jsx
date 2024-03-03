@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 const Signin = () => {
   const [loginData, setLoginData] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const navigate = useNavigate();
@@ -21,11 +21,15 @@ const Signin = () => {
     e.preventDefault();
     // You can add code to check authentication with a backend or stored data
     // For simplicity, let's assume we retrieve user data from localStorage
-    const savedData = JSON.parse(localStorage.getItem('userData'));
-    if (savedData && savedData.email === loginData.email && savedData.password === loginData.password) {
-      navigate('/dashboard');
+    const savedData = JSON.parse(localStorage.getItem("userData"));
+    if (
+      savedData &&
+      savedData.email === loginData.email &&
+      savedData.password === loginData.password
+    ) {
+      navigate("/dashboard");
     } else {
-      alert('Invalid email or password');
+      alert("Invalid email or password");
     }
   };
 
@@ -53,7 +57,9 @@ const Signin = () => {
           required
         />
 
-        <button type="submit" className="signup-btn">Sign In</button>
+        <button type="submit" className="signup-btn">
+          Sign In
+        </button>
       </form>
       <div className="signup-text">
         <span>Do not you have an account?</span>

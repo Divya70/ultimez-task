@@ -9,7 +9,7 @@ const Signup = () => {
     referral: "",
     email: "",
     password: "",
-    country:""
+    country: "",
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,12 +23,12 @@ const Signup = () => {
     e.preventDefault();
     // You can add code to save the form data to a database or state
     // For simplicity, let's assume we save it in localStorage
-    localStorage.setItem('userData', JSON.stringify(formData));
-    navigateTo('/');
+    localStorage.setItem("userData", JSON.stringify(formData));
+    navigateTo("/");
   };
   return (
     <div className="signup-container">
-       <div className="login-Container">
+      <div className="login-Container">
         <h1 className="login-title">Register</h1>
         <h3>Create Your Company Account</h3>
       </div>
@@ -50,21 +50,19 @@ const Signup = () => {
           required
         />
         <div className="select-input">
-        <select
-        id="selectInput"
-        name="country"
-        value={formData.country}
-        onChange={handleChange}
-       
-      >
-        <option value="">Select Country*</option>
-        <option value="INDIA">INDIA</option>
-        <option value="USA">USA</option>
-        <option value="JAPAN">JAPAN</option>
-        <option value="SRI-LANKA">SRI-LANKA</option>
-      </select>
-
-    </div>
+          <select
+            id="selectInput"
+            name="country"
+            value={formData.country}
+            onChange={handleChange}
+          >
+            <option value="">Select Country*</option>
+            <option value="INDIA">INDIA</option>
+            <option value="USA">USA</option>
+            <option value="JAPAN">JAPAN</option>
+            <option value="SRI-LANKA">SRI-LANKA</option>
+          </select>
+        </div>
         <input
           type="number"
           name="number"
@@ -97,12 +95,16 @@ const Signup = () => {
           onChange={handleChange}
         />
 
-        <button type="submit" className="signup-btn">Register</button>
+        <button type="submit" className="signup-btn">
+          Register
+        </button>
       </form>
       <div className="signup-text">
         <span className="account-text">Have an account?</span>
-        <Link to="/"><button className="btn">Sign In</button></Link>
-        <span style={{marginLeft:"5px"}}>here</span>
+        <Link to="/">
+          <button className="btn">Sign In</button>
+        </Link>
+        <span style={{ marginLeft: "5px" }}>here</span>
       </div>
     </div>
   );
