@@ -16,19 +16,27 @@ const Signin = ({ onSignIn }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSignIn(formData);   
-    if(e.target.email.value && e.target.password.value){
-      if(!localStorage.getItem('user')){
-          localStorage.setItem('user',JSON.stringify([{email:e.target.email.value,passeord:e.target.password.value}]))
-    
+    onSignIn(formData);
+    if (e.target.email.value && e.target.password.value) {
+      if (!localStorage.getItem("user")) {
+        localStorage.setItem(
+          "user",
+          JSON.stringify([
+            { email: e.target.email.value, passeord: e.target.password.value },
+          ])
+        );
       }
     }
     navigateTo("/dashboard");
   };
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-      <input
+    <div className="signup-container">
+      <div className="login-Container">
+        <h1 className="login-title">Login</h1>
+        <h3>Enter Your Account Login Details</h3>
+      </div>
+      <form onSubmit={handleSubmit} className="form-container">
+        <input
           type="email"
           name="email"
           placeholder="Email"
@@ -45,19 +53,15 @@ const Signin = ({ onSignIn }) => {
           required
         />
 
-    
-        
-          <button type="submit">Sign In</button>
-     
+        <button type="submit" className="signup-btn">Sign In</button>
       </form>
-      <div style={{ display: "flex" }}>
-        <p>Don't you have an account?</p>
+      <div className="signup-text">
+        <span>Don't you have an account?</span>
         <Link to="/signup">
-          <button>SignUp</button>
+          <button className="btn">SignUp</button>
         </Link>
       </div>
-     
-    </>
+    </div>
   );
 };
 

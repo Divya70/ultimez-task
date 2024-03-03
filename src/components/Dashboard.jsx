@@ -1,20 +1,26 @@
 
 const Dashboard = ({ userData }) => {
     return (
-      <div>
+      <div className="dashboard-container">
       <h2>Dashboard</h2>
-      {userData && (
-        <div>
-          <p>Email: {userData.name}</p>
-          <p>UserName: {userData.userName}</p>
-          <p>Country: {userData.country}</p>
-          <p>Number: {userData.number}</p>
-          <p>Email: {userData.email}</p>
-          <p>Password: {userData.password}</p>
-          <p>Referral ID: {userData.referral}</p>
-         
-        </div>
+      <table className="table-container">
+      
+        {userData && (
+      <>
+          <th>Email:<tr> {userData.name}</tr></th>
+          <th>UserName:<tr>{userData.userName}</tr> </th>
+          <th>Country:<tr>{userData.country}</tr> </th>
+          <th>Number:<tr> {userData.number}</tr></th>
+          <th>Email:<tr> {userData.email}</tr></th>
+          <th>Password:<tr> {userData.password}</tr></th>
+          <th>Referral ID:<tr>{userData.referral}</tr> </th>
+          </>
+    
       )}
+          
+      
+      </table>
+     
     </div>
     )
   }

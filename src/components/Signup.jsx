@@ -31,12 +31,16 @@ const Signup = ({ onSignUp }) => {
     navigateTo("/");
   };
   return (
-    <>
-      <form onSubmit={handleSubmit}>
+    <div className="signup-container">
+       <div className="login-Container">
+        <h1 className="login-title">Register</h1>
+        <h3>Create Your Company Account</h3>
+      </div>
+      <form onSubmit={handleSubmit} className="form-container">
         <input
           type="text"
           name="name"
-          placeholder="Name"
+          placeholder="Name*"
           value={formData.name}
           onChange={handleChange}
           required
@@ -44,19 +48,20 @@ const Signup = ({ onSignUp }) => {
         <input
           type="text"
           name="userName"
-          placeholder="UserName"
+          placeholder="UserName*"
           value={formData.userName}
           onChange={handleChange}
           required
         />
-        <div>
+        <div className="select-input">
         <select
         id="selectInput"
         name="country"
         value={formData.country}
         onChange={handleChange}
+       
       >
-        <option value="">Select Country</option>
+        <option value="">Select Country*</option>
         <option value="INDIA">INDIA</option>
         <option value="USA">USA</option>
         <option value="JAPAN">JAPAN</option>
@@ -67,7 +72,7 @@ const Signup = ({ onSignUp }) => {
         <input
           type="number"
           name="number"
-          placeholder="phone"
+          placeholder="Mobile Number*"
           value={formData.number}
           onChange={handleChange}
           required
@@ -75,7 +80,7 @@ const Signup = ({ onSignUp }) => {
         <input
           type="email"
           name="email"
-          placeholder="Email"
+          placeholder="Email*"
           value={formData.email}
           onChange={handleChange}
           required
@@ -83,7 +88,7 @@ const Signup = ({ onSignUp }) => {
         <input
           type="password"
           name="password"
-          placeholder="Password"
+          placeholder="Password*"
           value={formData.password}
           onChange={handleChange}
           required
@@ -96,14 +101,14 @@ const Signup = ({ onSignUp }) => {
           onChange={handleChange}
         />
 
-        <button type="submit">Register</button>
+        <button type="submit" className="signup-btn">Register</button>
       </form>
-      <div style={{display:"flex", gap:"5px", textAlign:"center"}}>
-        <p>Have an account?</p>
-        <Link to="/">Sign In</Link>
-        <span>here</span>
+      <div className="signup-text">
+        <span className="account-text">Have an account?</span>
+        <Link to="/"><button className="btn">Sign In</button></Link>
+        <span style={{marginLeft:"5px"}}>here</span>
       </div>
-    </>
+    </div>
   );
 };
 
