@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {countries} from 'countries-list';
 const Signup = ({ onSignUp }) => {
   const navigateTo = useNavigate();
-  const countryList = Object.values(countries);
   const [formData, setFormData] = useState({
     name: "",
     userName: "",
@@ -52,15 +50,19 @@ const Signup = ({ onSignUp }) => {
           required
         />
         <div>
-      <label htmlFor="country"></label>
-      <select id="country" onChange={handleChange} value={formData.country}>
-        <option value="">Select Counrty</option>
-        {countryList.map((countries) => (
-          <option key={countries.name} value={countries.name}>
-            {countries.name}
-          </option>
-        ))}
+        <select
+        id="selectInput"
+        name="country"
+        value={formData.country}
+        onChange={handleChange}
+      >
+        <option value="">Select Country</option>
+        <option value="INDIA">INDIA</option>
+        <option value="USA">USA</option>
+        <option value="JAPAN">JAPAN</option>
+        <option value="SRI-LANKA">SRI-LANKA</option>
       </select>
+
     </div>
         <input
           type="number"
