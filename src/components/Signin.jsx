@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-const Signin = ({ onSignUp }) => {
+const Signin = ({ onSignIn }) => {
   const navigateTo = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
@@ -16,7 +16,7 @@ const Signin = ({ onSignUp }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSignUp(formData);   
+    onSignIn(formData);   
     if(e.target.email.value && e.target.password.value){
       if(!localStorage.getItem('user')){
           localStorage.setItem('user',JSON.stringify([{email:e.target.email.value,passeord:e.target.password.value}]))

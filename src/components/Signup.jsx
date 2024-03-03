@@ -30,7 +30,7 @@ const Signup = ({ onSignUp }) => {
     
       }
     }
-    navigateTo("/dashboard");
+    navigateTo("/");
   };
   return (
     <>
